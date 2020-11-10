@@ -1,7 +1,7 @@
 way[highway=track]
 {
     width: 4;
-    color: orange;
+    color: #ff0000;
     dashes: 15,9;
     dashes-background-color: #00ff00;
     

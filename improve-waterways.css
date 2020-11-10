@@ -1,0 +1,13 @@
+way[waterway=stream]
+{
+
+	width: 2;
+    color: #00ace6;
+}
+
+way[waterway=river]
+{
+
+	width: 8;
+
+}

@@ -1,0 +1,20 @@
+way[highway=track]
+{
+    width: 4;
+    color: orange;
+    dashes: 15,9;
+    dashes-background-color: #00ff00;
+    
+}
+
+way[highway=path]
+{
+    width: 2;
+    dashes: 15,9;
+    dashes-background-color: #00ff00;
+}
+
+way[highway=service]
+{
+    color: #8ad3ed;
+}

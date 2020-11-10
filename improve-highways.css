@@ -18,3 +18,10 @@ way[highway=service]
 {
     color: #8ad3ed;
 }
+
+way[highway=residential]
+{
+
+	width: 2;
+    color: #ff00ff;
+}

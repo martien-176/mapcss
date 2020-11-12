@@ -1,5 +1,30 @@
-way[building=yes]
-{
-    color: green;
-    width: 2;
+meta {
+  title: "Buildings settings";
+  version: "0.1";
+  description: "Improved rendering of buildings for better visibility on different backgrounds.";
+  author: "martien-vdg";
+}
+
+/* Setting Options */
+
+setting::colordisplay {
+  type: color;
+  label: tr("Color used for displaying buildings");
+  default: green;
+}
+
+setting::building_line_width {
+  type: double;
+  label: tr("Choose line width of building");
+  default: 2;
+}
+
+
+/* Settings */
+way[building] {
+  color: setting("colordisplay");
+}
+
+way[building] {
+  width: setting("building_line_width");
 }

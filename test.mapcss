@@ -1,0 +1,59 @@
+
+meta {
+  title: "better-colors-ways";
+  version: "0.1";
+  description: "Improve the colors of buildings for better visibility on different backgrounds";
+  author: "martien-vdg";
+}
+
+/* Setting Options */
+
+setting::blue {
+  type: boolean;
+  label: tr("blue");
+  default: false;
+}
+setting::green {
+  type: boolean;
+  label: tr("green");
+  default: true;
+}
+setting::yellow {
+  type: boolean;
+  label: tr("yellow");
+  default: false;
+}
+setting::orange {
+  type: boolean;
+  label: tr("orange");
+  default: false;
+}
+
+
+
+way[building=yes][setting("blue")]
+{
+    color: blue;
+    width: 2;
+}
+
+way[building=yes][setting("green")]
+{
+    color: green;
+    width: 2;
+}
+
+way[building=yes][setting("yellow")]
+{
+    color: yellow;
+    width: 2;
+}
+
+way[building=yes][setting("orange")]
+{
+    color: orange;
+    width: 2;
+}
+
+
+

@@ -1,0 +1,21 @@
+setting::highway_casing {
+  type: boolean;
+  label: tr("Draw highway casing");
+  default: true;
+}
+
+way[highway][setting("highway_casing")] {
+  casing-width: 2;
+  casing-color: white;
+}
+
+
+setting::colordisplay {
+  type: color;
+  label: tr("key used for displaying");
+  default: colorDisplayCustomPref#FF00FF;
+}
+
+way[building] {
+  color: setting("colordisplay");
+}

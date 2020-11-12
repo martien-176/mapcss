@@ -1,0 +1,314 @@
+
+meta {
+  title: "Admin Boundaries";
+  version: "1.4_2020-10-05";
+  description: "Colors Admin Boundary Polygons and nodes. It Helps monitor and edit Boundaries. Parameter options let select Admin levels to show.";
+  icon: "admin_boundaries_icon.svg";
+  author: "pierzen";
+}
+
+/* Setting Options - Select Territory layers (boolean value yes/no) */
+
+setting::admin_level_4 {
+  type: boolean;
+  label: tr("Admin_level=4");
+  default: false;
+}
+setting::admin_level_5 {
+  type: boolean;
+  label: tr("Admin_level=5");
+  default: true;
+}
+setting::admin_level_6 {
+  type: boolean;
+  label: tr("Admin_level=6");
+  default: false;
+}
+setting::admin_level_7 {
+  type: boolean;
+  label: tr("Admin_level=7");
+  default: false;
+}
+setting::admin_level_8 {
+  type: boolean;
+  label: tr("Admin_level=8");
+  default: true;
+}
+setting::admin_level_9 {
+  type: boolean;
+  label: tr("Admin_level=9");
+  default: false;
+}
+setting::admin_level_10 {
+  type: boolean;
+  label: tr("Admin_level=10");
+  default: false;
+}
+setting::protected_area {
+  type: boolean;
+  label: tr("Protected_area & National_park");
+  default: true;
+}
+
+/* Pseudo Classes + distinct colors by territory */
+
+area[boundary][setting("protected_area")][boundary=~/(protected_area|national_park)/] 
+{set t_protected;
+	width: 4;
+	fill-color:forestgreen; fill-extent:10; font-size:10; 
+	color:forestgreen;
+	casing-width:0;
+}
+area[boundary][setting("admin_level_10")][admin_level=10] 
+{	set t_10;
+	object-z-index: 11;
+  fill-color:blue; fill-opacity:0.2;
+   font-size: 9;
+   text-color: blue;
+   text: name;
+   text-position: center;
+   color:blue;
+   casing-width:9; casing-color: blue;
+  }  
+area[boundary][setting("admin_level_9")][admin_level=9]
+{set t_9;
+	object-z-index: 12;
+  fill-color:cyan; fill-opacity:0.2;
+   font-size: 10;
+   text-color: cyan;
+   text: name;
+   text-position: center;
+   color:cyan;
+   casing-width:9; casing-color: cyan;
+  }  
+area[setting("admin_level_8")][boundary][admin_level=8]
+{set t_8;
+	object-z-index: 13;
+  fill-color:green; fill-opacity:0.2;
+   font-size: 10;
+   text-color: green;
+   text: name;
+   text-position: center;
+   width:2;
+   color:red;
+   casing-width:0;
+  }  
+area|z11-.t_8
+{
+	font-size: 16;
+}   
+area[boundary][setting("admin_level_7")][admin_level=7]
+{set t_7;
+	object-z-index: 14;
+  fill-color:blue; fill-opacity:0.3;
+   font-size: 12;
+   text-color: red;
+   text: name;
+   text-position: center;
+   color:red;
+   casing-width:9; casing-color: red;
+  }      
+area[boundary][setting("admin_level_6")][admin_level=6] 
+{set t_6;
+	object-z-index: 15;
+  fill-color:blue; fill-opacity:0.3;
+   font-size: 14;
+   text-color: blue;
+   text: name;
+   text-position: center;
+   width: 3;
+   color:blue;
+   casing-width:1; casing-color: blue;
+   }
+area[boundary][setting("admin_level_5")][admin_level=5] 
+{set t_5;
+  object-z-index: 16;
+  fill-color:#FFCC00; fill-opacity:0.2;
+   font-size: 18;
+   text-color: brown;
+   text: name;
+   text-position: center;
+   width: 3;
+   color: #FFCC00;
+   casing-width:3; casing-color: orange;
+  }
+area[boundary][setting("admin_level_4")][admin_level=4] 
+{set t_4;
+  object-z-index: 20;
+  fill-color:crimson; fill-opacity:0.2;
+   font-size: 16;
+   text-color: crimson;
+   text: name;
+   text-position: center;
+   width: 3;
+   color: crimson;
+   casing-width:3; casing-color: crimson;
+}
+
+canvas {
+    fill-color: #ffffea;
+}
+
+/* all Nodes - low zoom */
+
+node|z1-8 {
+    symbol-shape: square; symbol-size: 0; symbol-stroke-width:0.1 ; 
+}
+
+/* Untagged nodes - ways child nodes - same color */
+area.t_protected  > node!:tagged {
+  symbol-stroke-color: green;
+  symbol-fill-color: white;
+}
+area.t_10 > node!:tagged {
+  symbol-stroke-color: blue;
+  symbol-fill-color: white;
+}
+area.t_9 > node!:tagged {
+  symbol-stroke-color: cyan;
+  symbol-fill-color: white;
+}
+area.t_8 > node!:tagged {
+  symbol-stroke-color: red;
+  symbol-fill-color: white;
+}
+area.t_7 > node!:tagged {
+  symbol-stroke-color: red;
+  symbol-fill-color: white;
+}
+area.t_6 > node!:tagged {
+  symbol-stroke-color: blue;
+  symbol-fill-color: white;
+}
+area.t_5 > node!:tagged {
+  symbol-stroke-color: #FFCC00;
+  symbol-fill-color: white;
+}
+area.t_4 > node!:tagged {
+  symbol-stroke-color: rose;
+  symbol-fill-color: white;
+}
+
+way|z1-8 > node {
+    symbol-shape: square; symbol-size: 0.1; symbol-stroke-width:0.1 ; 
+}
+way|z9- > node!:tagged {
+	symbol-shape: square;  
+	symbol-stroke-color: gray;
+	symbol-fill-color: white;
+	symbol-stroke-width: 2;
+	symbol-stroke-opacity:0.8;
+}
+way > node|z9-11!:tagged {
+    symbol-size: 0.02;  
+}
+way > node|z12-13!:tagged {
+    symbol-size: 1.8; 
+}
+way > node|z14-!:tagged {
+    symbol-size: 7; 
+}
+
+/* Place nodes */
+node|z9-11[place] { symbol-shape:pentagon; symbol-size: 9; 
+	symbol-fill-color:white; symbol-stroke-width:3; symbol-stroke-color:gray;
+}
+node|z12-[place] { symbol-shape:pentagon; symbol-size: 14; 
+	symbol-fill-color:white; symbol-stroke-width:3; symbol-stroke-color:black;
+}
+
+
+/* Single unclosed ways end nodes */
+way!:closed >[index=1] node!:connection,
+way!:closed >[index=-1] node!:connection { 
+  symbol-fill-color: yellow;
+   symbol-stroke-color: red;
+   symbol-stroke-width: 3;
+   symbol-size: 14;
+}
+	
+relation[boundary]:unclosed_multipolygon > way	
+{
+  casing-width:6;
+  casing-dashes: 10,10;
+  casing-color:yellow;
+  casing-opacity:1;
+  z-index: -3;
+	symbol-stroke-width: 24; 
+	symbol-stroke-color: red; 
+	symbol-stroke-opacity: 0.8; 
+	symbol-shape: circle; 
+	symbol-size: 12; 
+	}
+	
+relation[boundary=administrative][!name]:closed
+{
+  casing-width:5;
+  casing-color:red;
+  casing-opacity:1;
+  z-index: -3;
+	symbol-stroke-width: 24; 
+	symbol-stroke-color: purple; 
+	symbol-stroke-opacity: 0.8; 
+	symbol-shape: circle; 
+	symbol-size: 12; 
+	}
+way:selected
+{
+  casing-width: 6; casing-color:red; casing-opacity:0.8;
+} 	
+
+relation[boundary]:selected
+{
+   fill-opacity:0.3;
+   fill-color:red;
+   text-color: red;
+  }
+
+ relation[boundary]:selected > way
+{
+   casing-width:+6;
+   casing-color:red;
+  }
+
+
+/* Connection nodes */
+
+node|z11-:connection {
+   symbol-size:12;
+  symbol-shape: circle;
+  symbol-stroke-color: #00ffff;
+  symbol-stroke-width: 1;
+  symbol-fill-color: crimson;
+}
+
+/* node selected */
+
+node|z10-:selected 
+{
+	symbol-size:14;
+	symbol-stroke-width:3;
+	symbol-stroke-color: crimson;
+	symbol-fill-color: yellow;
+}
+  
+node|z11-:connection:selected {
+  symbol-stroke-color: crimson;
+  symbol-stroke-width: 5;
+  symbol-fill-color: yellow;
+}
+/* Tagged nodes */
+
+node|z9-12[!place]:tagged!:connection {
+    symbol-shape: triangle; symbol-size: 4; 
+  symbol-stroke-color: cyan;
+  text-color:yellow;
+} 
+node|z13-[!place]:tagged!:connection {
+    symbol-shape: triangle; symbol-size: 14; 
+  symbol-stroke-color: cyan;
+  symbol-fill-color: blue;
+  text-color:yellow;
+} 
+
+

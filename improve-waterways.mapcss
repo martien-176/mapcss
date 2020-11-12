@@ -9,6 +9,6 @@ way[waterway=stream]
 way[waterway=river]
 {
 
-	width: 8;
+	width: 6;
 
 }

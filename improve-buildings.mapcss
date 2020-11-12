@@ -1,4 +1,5 @@
 way[building=yes]
 {
     color: green;
+    width: 2;
 }

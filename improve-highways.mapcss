@@ -12,14 +12,6 @@ way[highway=track]
     dashes-background-color: springgreen;
 }
 
-way[highway=path]
-{
-    width: 3;
-    color: Olive;
-    dashes: 15,9;
-    dashes-background-color: brown;
-}
-
 way[highway=service]
 {
     width: 3;

@@ -1,7 +1,7 @@
 meta {
   title: "Buildings settings";
   version: "0.1";
-  description: "Improved rendering of buildings for better visibility on different backgrounds.";
+  description: "Choose your preferred color and line width of building outlines for better visibility  on different backgrounds.";
   author: "Martien van de Griendt (osm username: martien-vdg");
 }
 

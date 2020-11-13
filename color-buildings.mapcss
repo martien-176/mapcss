@@ -2,7 +2,7 @@ meta {
   title: "Buildings settings";
   version: "0.1";
   description: "Improved rendering of buildings for better visibility on different backgrounds.";
-  author: "martien-vdg";
+  author: "Martien van de Griendt (osm username: martien-vdg");
 }
 
 /* Setting Options */

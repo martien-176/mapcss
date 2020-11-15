@@ -1,7 +1,7 @@
 meta {
   title: "Buildings settings";
   version: "0.1";
-  description: "Choose your preferred color and line width of building outlines for better visibility  on different backgrounds.";
+  description: "Choose your preferred color and line width of building outlines for better visibility on different backgrounds.";
   author: "Martien van de Griendt (osm username: martien-vdg");
 }
 
@@ -21,6 +21,9 @@ setting::building_line_width {
 
 
 /* Settings */
+
+/* Buildings */
+
 way[building] {
   color: setting("colordisplay");
 }
@@ -28,3 +31,4 @@ way[building] {
 way[building] {
   width: setting("building_line_width");
 }
+

@@ -1,0 +1,25 @@
+way[highway=unclassified]
+{
+	width: 4;
+    color: white;
+}
+
+way[highway=track]
+{
+    width: 4;
+    color: peru;
+    dashes: 12,9;
+    dashes-background-color: springgreen;
+}
+
+way[highway=service]
+{
+    width: 3;
+    color: aqua;
+}
+
+way[highway=residential]
+{
+	width: 2;
+    color: Aquamarine	;
+}

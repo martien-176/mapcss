@@ -1,7 +1,7 @@
 meta {
     title: "Color Ways";
     description: "Choose your preferred color and line width of building outlines for better visibility on different backgrounds. Also highways and waterways have clearer colors";
-    version: "0.1.[[revision]]_[[date]]";
+    version: "0.2.20_2020-11-25";
     author: "Martien van de Griendt, osm username martien-vdg";
     link: "https://josm.openstreetmap.de/wiki/Styles/ColorWays";
 }
@@ -26,11 +26,11 @@ setting::building_line_width {
 /* Buildings */
 
 way[building] {
-  color: setting("colordisplay");
+    color: setting("colordisplay");
 }
 
 way[building] {
-  width: setting("building_line_width");
+    width: setting("building_line_width");
 }
 
 
@@ -38,7 +38,7 @@ way[building] {
 
 way[highway=unclassified]
 {
-	width: 4;
+    width: 4;
     color: white;
 }
 
@@ -50,6 +50,13 @@ way[highway=track]
     dashes-background-color: springgreen;
 }
 
+way[highway=path]
+{
+    width: 2;
+    color: DarkOrange;
+}
+
+
 way[highway=service]
 {
     width: 3;
@@ -58,23 +65,19 @@ way[highway=service]
 
 way[highway=residential]
 {
-	width: 2;
-    color: Aquamarine	;
+    width: 2;
+    color: Aquamarine;
 }
 
 /* Waterways */
 
 way[waterway=stream]
 {
-
-	width: 2;
-    color: DeepSkyBlue;  /* #00ace6 */ 
-
+    width: 2;
+    color: DeepSkyBlue;
 }
 
 way[waterway=river]
 {
-
-	width: 6;
-
+    width: 6;
 }
